@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
+# 0. Install cURL
+sudo apt install curl
+
 CODE_DIR=$HOME/Projects/Code
 GIT_USER=HuffmanTree
 NVM_DIR=$HOME/.nvm
-PACKAGES=$(cat packages.txt)
-REPOSITORIES=$(cat repositories.txt)
+PACKAGES=$(curl https://raw.githubusercontent.com/HuffmanTree/setup/master/packages.txt)
+REPOSITORIES=$(curl https://raw.githubusercontent.com/HuffmanTree/setup/master/repositories.txt)
 
 # 1. Install apt packages
 sudo apt update
