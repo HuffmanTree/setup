@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# 0. Install cURL
-sudo apt install curl
-
 CODE_DIR=$HOME/Projects/Code
 GIT_USER=HuffmanTree
 NVM_DIR=$HOME/.nvm
