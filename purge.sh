@@ -14,5 +14,5 @@ nvm uninstall 16
 rm -rf $NVM_DIR
 
 # 3. Install apt packages
-sudo apt purge $PACKAGES
-sudo apt autoremove
+sudo apt purge $PACKAGES -y
+sudo apt autoremove -y
