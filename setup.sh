@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Prerequisites
+# - cURL
+
 CODE_DIR=$HOME/Projects/Code
 GIT_USER=HuffmanTree
 NVM_DIR=$HOME/.nvm
