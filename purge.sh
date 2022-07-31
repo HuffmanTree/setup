@@ -10,7 +10,6 @@ REPOSITORIES=$(curl https://raw.githubusercontent.com/HuffmanTree/setup/master/r
 rm -rf $CODE_DIR
 
 # 2. Uninstall nvm + node + npm
-nvm uninstall 16
 rm -rf $NVM_DIR
 
 # 3. Install apt packages

@@ -2,6 +2,7 @@
 
 # Prerequisites
 # - cURL
+# - apt
 
 CODE_DIR=$HOME/Projects/Code
 GIT_USER=HuffmanTree
@@ -32,9 +33,10 @@ do
     then
 	git clone git@github.com:$GIT_USER/$REPOSITORY.git $CODE_DIR/$REPOSITORY
 
-	if [ -f $CODE_DIR/$REPOSITORY/package.json ];
+	if [ -f $CODE_DIR/$REPOSITORY/setup.sh ];
 	then
-	    npm i --prefix $CODE_DIR/$REPOSITORY
+	    chmod +x $CODE_DIR/$REPOSITORY/setup.sh
+	    ./$CODE_DIR/$REPOSITORY/setup.sh
 	fi
 
     fi
