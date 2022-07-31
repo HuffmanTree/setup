@@ -53,5 +53,5 @@ do
 done
 
 # 4. Use custom ~/.bashrc
-run "echo PAGER=most >> source $HOME/.bashrc"
+run "echo PAGER=most >> $HOME/.bashrc"
 run "source $HOME/.bashrc"
