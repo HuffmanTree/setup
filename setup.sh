@@ -4,8 +4,6 @@
 # - cURL
 # - apt
 
-PS4=">>> "
-
 set -x
 
 CODE_DIR=$HOME/Projects/Code
@@ -13,8 +11,9 @@ GIT_BRANCH=master
 GIT_PROJECT=setup
 GIT_USER=HuffmanTree
 NVM_DIR=$HOME/.nvm
-PACKAGES=$(curl https://raw.githubusercontent.com/$GIT_USER/$GIT_PROJECT/$GIT_BRANCH/packages.txt)
-REPOSITORIES=$(curl https://raw.githubusercontent.com/$GIT_USER/$GIT_PROJECT/$GIT_BRANCH/repositories.txt)
+PACKAGES=$(curl -s https://raw.githubusercontent.com/$GIT_USER/$GIT_PROJECT/$GIT_BRANCH/packages.txt)
+PS4="[$GIT_PROJECT] >>> "
+REPOSITORIES=$(curl -s https://raw.githubusercontent.com/$GIT_USER/$GIT_PROJECT/$GIT_BRANCH/repositories.txt)
 
 # 1. Install apt packages
 sudo apt update
@@ -42,7 +41,7 @@ do
 	if [ -f $CODE_DIR/$REPOSITORY/setup.sh ];
 	then
 	    chmod +x $CODE_DIR/$REPOSITORY/setup.sh
-	    ./$CODE_DIR/$REPOSITORY/setup.sh
+	    $CODE_DIR/$REPOSITORY/setup.sh
 	fi
 
     fi
