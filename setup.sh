@@ -23,7 +23,8 @@ run "sudo apt update"
 run "sudo apt install $PACKAGES"
 
 # 2. Install nvm + node + npm
-run "curl -o /tmp/nvm.sh https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh 2> /dev/null"
+run "curl -o /tmp/nvm.sh https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh"
+run "chmod +x /tmp/nvm.sh"
 run "/tmp/nvm.sh"
 run "source $HOME/.bashrc"
 run "nvm install $NODEJS_VERSION"
