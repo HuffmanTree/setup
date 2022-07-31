@@ -5,10 +5,12 @@
 # - apt
 
 CODE_DIR=$HOME/Projects/Code
+GIT_BRANCH=master
+GIT_PROJECT=setup
 GIT_USER=HuffmanTree
 NVM_DIR=$HOME/.nvm
-PACKAGES=$(curl https://raw.githubusercontent.com/HuffmanTree/setup/master/packages.txt)
-REPOSITORIES=$(curl https://raw.githubusercontent.com/HuffmanTree/setup/master/repositories.txt)
+PACKAGES=$(curl https://raw.githubusercontent.com/$GIT_USER/$GIT_PROJECT/$GIT_BRANCH/packages.txt)
+REPOSITORIES=$(curl https://raw.githubusercontent.com/$GIT_USER/$GIT_PROJECT/$GIT_BRANCH/repositories.txt)
 
 # 1. Install apt packages
 sudo apt update
@@ -16,7 +18,7 @@ sudo apt install $PACKAGES
 
 # 2. Install nvm + node + npm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+source $HOME/.bashrc
 nvm install 16
 nvm use 16
 nvm alias default 16
