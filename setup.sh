@@ -10,7 +10,7 @@ GIT_PROJECT=setup
 GIT_USER=HuffmanTree
 NODEJS_VERSION=16
 NVM_DIR=$HOME/.nvm
-PACKAGES=$(curl -s https://raw.githubusercontent.com/$GIT_USER/$GIT_PROJECT/$GIT_BRANCH/packages.txt)
+PACKAGES=$(curl -s https://raw.githubusercontent.com/$GIT_USER/$GIT_PROJECT/$GIT_BRANCH/packages.txt | tr "\n" " ")
 REPOSITORIES=$(curl -s https://raw.githubusercontent.com/$GIT_USER/$GIT_PROJECT/$GIT_BRANCH/repositories.txt)
 
 run() {
