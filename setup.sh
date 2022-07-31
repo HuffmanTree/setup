@@ -4,6 +4,10 @@
 # - cURL
 # - apt
 
+PS4=">>> "
+
+set -x
+
 CODE_DIR=$HOME/Projects/Code
 GIT_BRANCH=master
 GIT_PROJECT=setup
@@ -28,7 +32,7 @@ nvm alias default 16
 # 3.1 Make ~/Projects/Code directory
 mkdir -p $CODE_DIR
 
-# 3.2 Clone repositories and install dependencies
+# 3.2 Clone repositories and set them up
 for REPOSITORY in ${REPOSITORIES[@]}
 do
     if [ ! -d $CODE_DIR/$REPOSITORY ]
@@ -43,3 +47,5 @@ do
 
     fi
 done
+
+set +x
