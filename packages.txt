@@ -1,5 +1,6 @@
 emacs
 git
+man
 python3
 python3-pip
 tree
