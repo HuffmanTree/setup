@@ -51,3 +51,7 @@ do
 
     fi
 done
+
+# 4. Reload ~/.bashrc
+
+run "source ~/.bashrc"
