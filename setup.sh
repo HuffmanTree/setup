@@ -52,6 +52,6 @@ do
     fi
 done
 
-# 4. Reload ~/.bashrc
-
-run "source ~/.bashrc"
+# 4. Use custom ~/.bashrc
+run "echo PAGER=most >> source $HOME/.bashrc"
+run "source $HOME/.bashrc"
