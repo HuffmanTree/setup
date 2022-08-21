@@ -11,6 +11,7 @@ GIT_USER=HuffmanTree
 NODEJS_VERSION=16
 NVM_DIR=$HOME/.nvm
 PACKAGES=$(curl -s https://raw.githubusercontent.com/$GIT_USER/$GIT_PROJECT/$GIT_BRANCH/packages.txt | tr "\n" " ")
+PPAS=$(curl -s https://raw.githubusercontent.com/$GIT_USER/$GIT_PROJECT/$GIT_BRANCH/ppas.txt | tr "\n" " ")
 REPOSITORIES=$(curl -s https://raw.githubusercontent.com/$GIT_USER/$GIT_PROJECT/$GIT_BRANCH/repositories.txt)
 
 run() {
@@ -18,11 +19,15 @@ run() {
     $1
 }
 
-# 1. Install apt packages
+# 1. Add necessary PPAs
+run "sudo apt update"
+run "sudo add-apt-repository $PPAS"
+
+# 2. Install apt packages
 run "sudo apt update"
 run "sudo apt install $PACKAGES"
 
-# 2. Install nvm + node + npm
+# 3. Install nvm + node + npm
 run "curl -o /tmp/nvm.sh https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh"
 run "chmod +x /tmp/nvm.sh"
 run "/tmp/nvm.sh"
@@ -31,12 +36,12 @@ run "nvm install $NODEJS_VERSION"
 run "nvm use $NODEJS_VERSION"
 run "nvm alias default $NODEJS_VERSION"
 
-# 3. Install projects
+# 4. Install projects
 
-# 3.1 Make ~/Projects/Code directory
+# 4.1 Make ~/Projects/Code directory
 run "mkdir -p $CODE_DIR"
 
-# 3.2 Clone repositories and set them up
+# 4.2 Clone repositories and set them up
 for REPOSITORY in ${REPOSITORIES[@]}
 do
     if [ ! -d $CODE_DIR/$REPOSITORY ]
@@ -52,6 +57,7 @@ do
     fi
 done
 
-# 4. Use custom ~/.bashrc
+# 5. Use custom ~/.bashrc
+# TODO: Make a copy of a config present on this repo
 run "echo PAGER=most >> $HOME/.bashrc"
 run "source $HOME/.bashrc"
