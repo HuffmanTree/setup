@@ -1,4 +1,4 @@
-emacs
+emacs28
 git
 man
 most
