@@ -1,5 +1,6 @@
 emacs28
 git
+jq
 man
 most
 python3
