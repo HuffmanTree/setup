@@ -1,8 +1,11 @@
 emacs28
+fonts-font-awesome
+fonts-material-design-icons-iconfont
 git
 jq
 man
 most
+polybar
 python3
 python3-pip
 ripgrep
